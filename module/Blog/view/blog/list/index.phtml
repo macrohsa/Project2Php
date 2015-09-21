@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title></title>
+    </head>
+    <body>
+        
+        
+        <!-- Filename: /module/Blog/view/blog/list/index.phtml -->
+ <h1>Blog</h1>
+ 
+ <p><a href="<?php echo $this->url('blog/add',array());?>">Add new item</a></p>
+ 
+ 
+ 
+
+
+
+ <?php foreach ($this->posts as $post): ?>
+ <article>
+     <h1 id="post<?= $post->getId() ?>"><?= $post->getTitle() ?></h1>
+     <p>
+         <?= $post->getText() ?>
+     </p>
+     <p><a href="<?php echo $this->url('blog/edit',array('id' => $post->getId()));?>">Edit</a>
+         &nbsp;&nbsp;&nbsp;
+     <a href="<?php echo $this->url('blog/delete',array('id' => $post->getId()));?>">Delete</a></p>
+ </article>
+ <?php endforeach ?>
+        
+        
+    </body>
+</html>
